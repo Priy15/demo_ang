@@ -1,0 +1,38 @@
+<button style="float:right;right: 100px;top: 5px;" type="button" (click)="onNoClick()">
+        <span aria-hidden="true">×</span>
+      </button>
+<h1 mat-dialog-title >View Past Checks</h1> 
+<p mat-dialog-content >Account Number {{data.checknumber}}</p>
+<div mat-dialog-content class="example-container" class="mat-typography">
+   
+  <mat-form-field>
+      <!-- <input matInput [(ngModel)]="data.animal"  placeholder="What's your name?"> -->
+      <input  matInput  [(ngModel)]="checknumber" placeholder="CheckNumber" maximum="7" [formControl]="checknumber" required>
+       </mat-form-field>
+  <mat-form-field>
+      <input  matInput  type="date" placeholder="Posted Date" [formControl]="posteddate" required>
+  </mat-form-field>
+  <mat-form-field>
+      <input  matInput  type="text" maximum="12" placeholder="Check Amount" [formControl]="amount" required>
+      </mat-form-field>
+</div>
+<br>
+<mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Helpful Tips:
+            </mat-panel-title>            
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="primay">Close</button>
+<br>
+  <!-- <button mat-button [mat-dialog-close]="data.checknumber" cdkFocusInitial color="primary"
+  (click)="openDialog()">Search</button> -->
+  <button mat-raised-button (click)="viewDialog()" color="primary">Search</button>
+</div>
